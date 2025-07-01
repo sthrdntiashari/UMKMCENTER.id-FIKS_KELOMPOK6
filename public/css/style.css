@@ -1,0 +1,1330 @@
+/* public/css/style.css */
+
+/* Definisi Variabel Warna Umum */
+:root {
+    --umkm-dark-green: #053d1b;
+    --umkm-light-bg: #feefc7;
+    --umkm-accent-yellow: #F8B400;
+    --umkm-accent-yellow-dark: #e0a300;
+    --umkm-text-dark: #222;
+    --umkm-text-medium: #444;
+    --umkm-text-light: #666;
+    --umkm-footer-bg: #343a40;
+     --umkm-info: #17a2b8; /* Biru Info */
+    --umkm-info-hover: #138496;
+    --umkm-danger: #dc3545; /* Merah Bahaya/Tolak */
+    --umkm-danger-hover: #c82333;
+
+    /* Warna khusus untuk tombol di header */
+    --btn-header-primary-bg: var(--umkm-light-bg);
+    --btn-header-primary-text: var(--umkm-dark-green);
+    --btn-header-primary-hover-bg: #dfab70;
+
+    --btn-header-outline-border: var(--umkm-light-bg);
+    --btn-header-outline-text: var(--umkm-light-bg);
+    --btn-header-outline-hover-bg: var(--umkm-light-bg);
+    --btn-header-outline-hover-text: var(--umkm-dark-green);
+
+    /* Warna untuk tombol dan harga di product card (dashboard) */
+    --btn-buy-bg: var(--umkm-dark-green);
+    --btn-buy-text: white;
+    --btn-buy-hover-bg: #032b12;
+
+    --btn-detail-bg: var(--umkm-light-bg);
+    --btn-detail-text: var(--umkm-dark-green);
+    --btn-detail-hover-bg: #e0c896;
+    --btn-detail-hover-text: var(--umkm-dark-green);
+
+    --product-price-color: var(--umkm-dark-green);
+
+    /* Warna khusus untuk tombol di halaman login/register */
+    --btn-form-bg: var(--umkm-dark-green);
+    --btn-form-text: white;
+    --btn-form-hover-bg: #032b12;
+    --form-label-color: var(--umkm-dark-green);
+    --form-border-focus: var(--umkm-dark-green);
+    --form-shadow-focus: rgba(5, 61, 27, 0.25);
+    --error-message-color: #dc3545;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--umkm-light-bg); /* Latar belakang halaman umum */
+    color: var(--umkm-text-dark);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+ }
+
+/* Header Styles */
+.header {
+    background-color: var(--umkm-dark-green);
+    color: white;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.06);
+    flex-wrap: wrap;
+}
+.header .logo-link {
+    display: flex;
+    align-items: center;
+    font-size: 1.25rem;
+    font-weight: 700;
+    text-decoration: none;
+    color: white;
+}
+.header .logo-link img {
+    height: 3rem;
+    margin-right: 0.5rem;
+}
+
+/* Hamburger menu toggle */
+.header .menu-toggle {
+    display: none; /* Sembunyikan di desktop */
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    padding: 0.5rem;
+    font-size: 1.5rem;
+    line-height: 1;
+}
+.header .menu-toggle svg {
+    stroke: white;
+}
+
+/* Nav Wrapper untuk menu utama */
+.header .nav-wrapper {
+    display: flex;
+    flex-grow: 1;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+/* Navigasi dan tombol otentikasi (desktop) */
+.header .nav-links-container {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+}
+.header .nav-link {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 0.5rem 0;
+    position: relative;
+    transition: all 0.3s ease;
+}
+.header .nav-link:hover,
+.header .nav-link.active {
+    border-bottom: 2px solid white;
+}
+
+.header .auth-buttons-container {
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+    margin-left: 1rem;
+}
+.header .auth-button {
+    padding: 0.5rem 1rem;
+    border-radius: 0.375rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+.header .auth-button.primary {
+    background-color: var(--btn-header-primary-bg);
+    color: var(--btn-header-primary-text);
+    border: none;
+}
+.header .auth-button.primary:hover {
+    background-color: var(--btn-header-primary-hover-bg);
+    color: var(--btn-header-primary-text);
+}
+.header .auth-button.outline {
+    background-color: transparent;
+    border: 1px solid var(--btn-header-outline-border);
+    color: var(--btn-header-outline-text);
+}
+.header .auth-button.outline:hover {
+    background-color: var(--btn-header-outline-hover-bg);
+    color: var(--btn-header-outline-hover-text);
+}
+.header .auth-form-logout {
+    display: inline-block;
+}
+.header .auth-form-logout button {
+    background-color: transparent;
+    border: 1px solid var(--btn-header-outline-border);
+    color: var(--btn-header-outline-text);
+    padding: 0.5rem 1rem;
+    border-radius: 0.375rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+.header .auth-form-logout button:hover {
+    background-color: var(--btn-header-outline-hover-bg);
+    color: var(--btn-header-outline-hover-text);
+}
+
+
+/* Media Queries untuk Mobile (ukuran layar <= 767px) */
+@media (max-width: 767px) {
+    .header {
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 1rem 1.5rem;
+    }
+
+    .header .menu-toggle {
+        display: block;
+    }
+
+    .header .nav-wrapper {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        margin-top: 1rem;
+        gap: 1rem;
+        background-color: var(--umkm-dark-green);
+        padding-bottom: 1rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .header .nav-wrapper.active {
+        display: flex;
+    }
+
+    .header .nav-links-container,
+    .header .auth-buttons-container {
+        flex-direction: column;
+        width: 100%;
+        gap: 0.75rem;
+        margin-left: 0;
+    }
+    .header .nav-link,
+    .header .auth-button,
+    .header .auth-form-logout button {
+        width: calc(100%);
+        text-align: center;
+        padding: 0.75rem 1rem;
+        border-radius: 0.5rem;
+    }
+    .header .auth-button.outline {
+        border-width: 2px;
+    }
+    .header .auth-form-logout button {
+        border-width: 2px;
+    }
+
+    .header .nav-link:hover, /* Hilangkan border-bottom di mobile hover */
+    .header .nav-link.active {
+        border-bottom: none;
+    }
+}
+
+/* Hero Section (Dashboard Home) */
+.hero-section {
+    background-color: var(--umkm-dark-green);
+    color: white;
+    padding: 5rem 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2.5rem;
+}
+@media (min-width: 1024px) {
+    .hero-section {
+        flex-direction: row;
+        gap: 5rem;
+        padding-left: 8rem;
+        padding-right: 8rem;
+    }
+}
+.hero-content {
+    max-width: 36rem;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+@media (min-width: 1024px) {
+    .hero-content {
+        text-align: left;
+        margin-right: 5rem;
+    }
+}
+.hero-content h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+}
+.hero-content p {
+    font-size: 1.125rem;
+    margin-bottom: 2rem;
+}
+.search-container {
+    display: flex;
+    align-items: center;
+    /* Sesuaikan padding sesuai kebutuhan Anda */
+}
+
+.hero-search-form {
+    display: flex;
+    border: 1px solid #ddd;
+    border-radius: 15px; /* Mengatur border-radius untuk seluruh form */
+    overflow: hidden; /* Memastikan elemen di dalamnya mengikuti border-radius */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    max-width: 500px; /* Batasi lebar maksimum form */
+    width: 100%; /* Agar responsif */
+}
+
+.search-input {
+    flex-grow: 1; /* Mengisi ruang yang tersedia */
+    padding: 12px 20px;
+    border: none;
+    outline: none; /* Hilangkan outline saat fokus */
+    font-size: 16px;
+    color: #333;
+}
+
+/* Rounded corners untuk input kiri */
+.search-input-rounded-left {
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+}
+
+.search-button {
+    background-color: var(--btn-detail-hover-bg); /* Warna biru */
+    color: var(--btn-buy-hover-bg);
+    border: none;
+    padding: 12px 18px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease;
+}
+
+/* Rounded corners untuk tombol kanan */
+.search-button-rounded-right {
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
+.search-button:hover {
+    background-color:var(--btn-header-primary-hover-bg); /* Warna biru lebih gelap saat hover */
+}
+
+.search-button svg {
+    color: var(--btn-buy-hover-bg); /* Menggunakan warna teks untuk ikon SVG */
+}
+@media (max-width: 800px) {
+    .search-container {
+            justify-content: center;
+            align-items: center;
+    }
+}
+/* Responsif untuk layar kecil */
+@media (max-width: 600px) {
+    .search-container {
+            justify-content: center;
+            align-items: center;
+
+    }
+    .hero-search-form {
+
+        flex-direction: row; 
+        border-radius: 10px; /* Kurangi border-radius untuk tampilan yang lebih compact */
+    }
+
+    .search-input,
+    .search-button {
+        width: 20%;
+        border-radius: 0; /* Hilangkan border-radius individual */
+    }
+
+   
+}
+.hero-images-container {
+    display: flex;
+}
+.hero-image {
+    max-width:450px;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.06);
+}
+
+/* Category Section (Dashboard Home) */
+.category-section {
+    background-color: var(--umkm-dark-green);
+    color: white;
+    padding: 1.25rem 2rem;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    font-size: 1.125rem;
+    font-weight: 600;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    flex-wrap: wrap;
+}
+@media (min-width: 1024px) {
+    .category-section {
+        justify-content: flex-start;
+    }
+}
+.category-link {
+    position: relative;
+    padding-bottom: 0.5rem;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    color: white;
+}
+.category-link.active,
+.category-link:hover {
+    font-weight: 700;
+}
+.category-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 3px;
+    background-color: white;
+    transition: width 0.3s ease;
+}
+.category-link.active::after,
+.category-link:hover::after {
+    width: 100%;
+}
+
+/* Main Content (Product Grid - Dashboard Home) */
+.main-content {
+    background-color: var(--umkm-light-bg);
+    max-width: 76rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 2.5rem 1rem;
+    border-radius: 0.5rem;
+    margin-top: 2.5rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.06);
+}
+.main-content h2 {
+    font-size: 1.875rem;
+    font-weight: 700;
+    color: var(--umkm-dark-green);
+    margin-bottom: 2rem;
+}
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+    gap: 1.5rem;
+}
+@media (min-width: 640px) {
+    .product-grid {
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+    }
+}
+@media (min-width: 768px) {
+    .product-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+@media (min-width: 1024px) {
+    .product-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+}
+
+.product-card {
+    background-color: white;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.06);
+    overflow: hidden;
+    transform: translateY(0);
+    transition: transform 0.3s ease;
+}
+.product-card:hover {
+    transform: scale(1.05);
+}
+.product-card img {
+    width: 100%;
+    height: 12rem;
+    object-fit: cover;
+    border-bottom: 1px solid #e2e8f0;
+}
+.product-card-info {
+    padding: 1.25rem;
+}
+.product-card-info h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--umkm-dark-green);
+    margin-bottom: 0.5rem;
+}
+.product-card-info .description {
+    color: var(--umkm-text-medium);
+    font-size: 0.875rem;
+    margin-bottom: 0.75rem;
+}
+.product-card-info .price {
+    color: var(--product-price-color);
+    font-weight: 700;
+    font-size: 1.125rem;
+    margin-bottom: 0.5rem;
+}
+.product-card-info .umkm-name {
+    color: var(--umkm-text-light);
+    font-size: 0.75rem;
+    margin-bottom: 1rem;
+}
+.product-card-actions {
+    display: flex;
+    gap: 0.75rem;
+}
+.product-card-actions .button {
+    flex-grow: 1;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 0.375rem;
+    font-weight: 500;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    border: 1px solid transparent;
+}
+.product-card-actions .button.buy {
+    background-color: var(--btn-buy-bg);
+    color: var(--btn-buy-text);
+}
+.product-card-actions .button.buy:hover {
+    background-color: var(--btn-buy-hover-bg);
+    color: var(--btn-buy-text);
+}
+.product-card-actions .button.detail {
+    background-color: var(--btn-detail-bg);
+    color: var(--btn-detail-text);
+    border-color: var(--btn-detail-text);
+}
+.product-card-actions .button.detail:hover {
+    background-color: var(--btn-detail-hover-bg);
+    color: var(--btn-detail-hover-text);
+    border-color: var(--btn-detail-text);
+}
+.product-grid .empty-message {
+    grid-column: 1 / -1;
+    text-align: center;
+    color: var(--umkm-text-light);
+    font-size: 1.125rem;
+}
+
+/* Main Container (Product Detail) */
+.main-container-detail { /* Mengganti .main-container agar tidak konflik dengan about.blade.php */
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 2.5rem;
+    background-color: white;
+    border-radius: 0.75rem;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.breadcrumb {
+    padding: 0 0 1rem 0;
+    font-size: 0.95em;
+    color: var(--umkm-text-light);
+}
+.breadcrumb a {
+    color: var(--umkm-dark-green);
+    text-decoration: none;
+    transition: text-decoration 0.2s ease;
+}
+.breadcrumb a:hover {
+    text-decoration: underline;
+}
+.breadcrumb span {
+    color: var(--umkm-text-medium);
+}
+
+.product-detail-card-container { /* Mengganti .product-detail-card */
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    padding-top: 1.5rem;
+    align-items: flex-start;
+}
+.product-image-detail { /* Mengganti .product-image */
+    flex: 1;
+    min-width: 300px;
+    max-width: 500px;
+    margin: 0 auto;
+}
+.product-image-detail img {
+    width: 100%;
+    height: auto;
+    border-radius: 0.75rem;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+.product-info-detail-area { /* Mengganti .product-info-detail */
+    flex: 1;
+    min-width: 300px;
+}
+.product-info-detail-area h1 {
+    color: var(--umkm-dark-green);
+    font-size: 2.5em;
+    font-weight: 700;
+    margin-top: 0;
+    margin-bottom: 0.75rem;
+}
+.product-info-detail-area .price {
+    font-weight: bold;
+    color: var(--product-price-color);
+    font-size: 2em;
+    margin-bottom: 1.5rem;
+}
+.product-info-detail-area .description-text { /* Mengganti .description */
+    color: var(--umkm-text-medium);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+.product-info-detail-area h3 {
+    color: var(--umkm-dark-green);
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid var(--umkm-light-bg);
+    padding-bottom: 0.5rem;
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+.product-info-detail-area p {
+    margin-bottom: 0.6rem;
+    color: var(--umkm-text-light);
+    font-size: 1rem;
+}
+.product-info-detail-area p strong {
+    color: var(--umkm-text-dark);
+}
+.product-info-detail-area .btn-ecommerce {
+    display: inline-block;
+    padding: 15px 30px;
+    background-color: var(--btn-ecommerce-bg);
+    color: var(--btn-ecommerce-text);
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.15rem;
+    transition: background-color 0.3s ease;
+    margin-top: 2rem;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+.product-info-detail-area .btn-ecommerce:hover {
+    background-color: var(--btn-ecommerce-hover-bg);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+}
+
+
+/* Main Content (About Page) */
+.main-about-container {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 2.5rem;
+    /* background-color: white; <-- DIHAPUS */
+    border-radius: 0.75rem;
+    /* box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15); <-- DIHAPUS */
+    line-height: 1.7;
+    overflow: hidden;
+}
+/* Tambahkan shadow pada teks utama agar lebih terbaca di background krem */
+.main-about-container > p,
+.main-about-container > ul {
+    background-color: white; /* Beri background putih hanya pada paragraf utama */
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    margin-bottom: 2rem; /* Jarak antar blok paragraf */
+}
+.main-about-container > p:first-of-type {
+    margin-top: 1.5rem; /* Jarak dari judul h1 */
+}
+
+
+.about-header-logo {
+    display: block;
+    max-width: 150px;
+    height: auto;
+    margin: 0 auto 30px auto;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+body.loaded .about-header-logo {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.main-about-container h1 {
+    color: var(--umkm-dark-green);
+    font-weight: 700;
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1s ease-out 0.5s, transform 1s ease-out 0.5s;
+}
+body.loaded .main-about-container h1 {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Animasi muncul saat scroll */
+.animated-section {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    margin-bottom: 2rem;
+}
+.animated-section.in-view {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.main-about-container h2 {
+    color: var(--umkm-dark-green);
+    font-weight: 700;
+    font-size: 1.8rem;
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid var(--umkm-light-bg);
+    padding-bottom: 0.5rem;
+}
+
+.main-about-container p {
+    margin-bottom: 1rem;
+    color: var(--umkm-text-medium);
+    font-size: 1rem;
+}
+
+/* Grid untuk Misi dan Nilai */
+.icon-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.grid-item {
+    background-color: white;
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.grid-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.12);
+}
+
+.grid-item .icon-wrapper {
+    background-color: var(--umkm-dark-green);
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto 1rem auto;
+}
+
+.grid-item .icon-wrapper svg {
+    width: 32px;
+    height: 32px;
+    stroke: white;
+    fill: none;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.grid-item h3 {
+    color: var(--umkm-dark-green);
+    font-weight: 600;
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+}
+
+.grid-item p {
+    color: var(--umkm-text-medium);
+    font-size: 0.95rem;
+    margin-bottom: 0;
+}
+
+.main-about-container .tagline {
+    text-align: center;
+    margin-top: 30px;
+    font-style: italic;
+    color: var(--umkm-text-light);
+    font-size: 1.1rem;
+}
+
+
+/* Form Cards (Login/Register) */
+.form-card { /* Mengganti .login-card / .register-card */
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    width: 100%;
+    max-width: 450px;
+    box-sizing: border-box;
+}
+
+.form-card .logo-container {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.form-card .logo {
+    max-width: 120px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+.form-card h2 {
+    text-align: center;
+    color: var(--umkm-dark-green);
+    margin-bottom: 25px;
+    font-weight: 700;
+    font-size: 2.2rem;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--form-label-color);
+    font-weight: 500;
+    font-size: 1.1rem;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="password"] {
+    width: 100%;
+    padding: 14px 18px;
+    border: 1px solid #ced4da;
+    border-radius: 8px;
+    box-sizing: border-box;
+    font-size: 1.1rem;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="email"]:focus,
+.form-group input[type="password"]:focus {
+    border-color: var(--form-border-focus);
+    outline: none;
+    box-shadow: 0 0 0 4px var(--form-shadow-focus);
+}
+
+.checkbox-group {
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+}
+
+.checkbox-group input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
+    accent-color: var(--umkm-dark-green);
+}
+
+.checkbox-group label {
+    margin-bottom: 0;
+    color: #555;
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+.btn-form-primary { /* Mengganti btn-umkm-primary */
+    background-color: var(--btn-form-bg);
+    color: var(--btn-form-text);
+    padding: 15px 25px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.25rem;
+    font-weight: 600;
+    width: 100%;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-form-primary:hover {
+    background-color: var(--btn-form-hover-bg);
+}
+
+.alert-message {
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    font-weight: 500;
+    text-align: center;
+}
+.alert-success {
+    background-color: var(--alert-success-bg);
+    color: var(--alert-success-text);
+    border: 1px solid #c3e6cb;
+}
+.alert-danger {
+    background-color: #f8d7da;
+    color: var(--error-message-color);
+    border: 1px solid #f5c6cb;
+}
+
+.error-message {
+    color: var(--error-message-color);
+    font-size: 0.9em;
+    margin-top: 5px;
+    display: block;
+}
+
+.link-text {
+    text-align: center;
+    margin-top: 25px;
+    color: #666;
+    font-size: 1rem;
+}
+
+.link-text a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: 600;
+    transition: text-decoration 0.2s ease;
+}
+.link-text a:hover {
+    text-decoration: underline;
+}
+
+.footer {
+    text-align: center;
+    padding: 40px 20px; /* Tambah padding horizontal */
+    margin-top: 50px;
+    background-color: var(--umkm-footer-bg);
+    color: white;
+}
+.footer p {
+    margin: 0;
+    font-size: 1rem;
+}
+
+.footer-content {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.footer-contact {
+    margin-top: 20px;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.footer-contact p {
+    margin-bottom: 5px;
+}
+
+.footer-contact a {
+    color: white;
+    text-decoration: none;
+    transition: text-decoration 0.3s ease;
+}
+
+.footer-contact a:hover {
+    text-decoration: underline;
+}
+
+.social-icons {
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.social-icons a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.5rem; /* Ukuran ikon media sosial */
+    transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: var(--umkm-light-bg); /* Warna hover untuk ikon sosial */
+}
+
+/* Responsive adjustments umum */
+@media (max-width: 767px) {
+    /* Header responsiveness ada di bagian atas */
+
+    .hero-section {
+        padding: 3rem 1rem; /* Kurangi padding di mobile */
+        gap: 1.5rem;
+    }
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+    .hero-content p {
+        font-size: 1rem;
+    }
+    .hero-search-container {
+        flex-direction:column;
+        width: 100%;
+    }
+    .hero-search-input {
+        width: 90%;
+        border-radius: 0.5rem !important; /* Hapus sudut bundar agar penuh */
+    }
+    .hero-search-button {
+        width: 10%;
+        border-radius: 0.5rem !important; /* Hapus sudut bundar agar penuh */
+    }
+    .hero-images-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    .hero-image {
+        max-width: 300px; /* Kurangi ukuran gambar di mobile */
+    }
+
+    .category-section {
+        padding: 1rem;
+        gap: 1rem;
+        justify-content: center;
+    }
+    .category-link {
+        font-size: 1rem;
+    }
+
+    .main-content,
+    .main-container-detail,
+    .main-about-container,
+    .form-card {
+        margin: 20px auto;
+        padding: 20px;
+    }
+    .main-content h2,
+    .main-container-detail h1,
+    .main-about-container h1,
+    .form-card h2 {
+        font-size: 1.8rem;
+    }
+    .product-grid {
+        grid-template-columns: 1fr 1fr; /* Satu kolom di mobile */
+    }
+    .product-card-actions {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    .product-info-detail-area h1 {
+        font-size: 2em;
+        text-align: center;
+    }
+    .product-info-detail-area .price,
+    .product-info-detail-area .description-text {
+        text-align: center;
+    }
+    .product-info-detail-area .btn-ecommerce {
+        width: 100%;
+        text-align: center;
+    }
+    .main-about-container h2 {
+        font-size: 1.5rem;
+    }
+    .icon-grid {
+        grid-template-columns: 1fr;
+    }
+    .grid-item {
+        padding: 1rem;
+    }
+     .footer {
+        padding: 30px 15px;
+    }
+    .footer-content {
+        padding: 0;
+    }
+}
+
+/* ========================================= */
+/* 9. Admin Product Management Styles */
+/* ========================================= */
+.admin-product-management-container {
+   padding: 20px;
+   max-width: 1200px; /* Contoh lebar maksimum kontainer */
+   margin: 20px auto; /* Pusatkan kontainer */
+   background-color: #f9f9f9;
+   border-radius: 8px;
+   box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.admin-product-management-container h1 {
+   color: var(--umkm-dark-green);
+   font-size: 2rem;
+   margin-bottom: 20px;
+   text-align: center;
+}
+
+.admin-table {
+   width: 100%;
+   border-collapse: collapse;
+   margin-bottom: 20px;
+   background-color: white;
+   box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+   border-radius: 8px;
+   overflow: hidden; /* Untuk memastikan border-radius bekerja dengan baik */
+}
+
+.admin-table th, .admin-table td {
+   padding: 12px 15px;
+   text-align: left;
+   border-bottom: 1px solid #eee;
+}
+
+.admin-table th {
+   background-color: var(--umkm-light-bg);
+   color: var(--umkm-text-medium);
+   font-weight: 600;
+   text-transform: uppercase;
+   font-size: 0.9rem;
+}
+
+.admin-table tbody tr:nth-child(even) {
+   background-color: #f6f6f6;
+}
+
+.admin-table tbody tr:hover {
+   background-color: #eaeaea;
+}
+
+.admin-table td img {
+   max-width: 80px;
+   height: auto;
+   display: block;
+   margin: 0 auto;
+   border-radius: 4px;
+   box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+
+.product-name-cell {
+   font-weight: 500;
+   color: var(--umkm-text-dark);
+}
+
+.status-badge-table {
+   display: inline-block;
+   padding: 5px 10px;
+   border-radius: 15px;
+   font-size: 0.85rem;
+   font-weight: 600;
+   text-align: center;
+   white-space: nowrap;
+}
+
+.status-badge-table.status-pending {
+   background-color: var(--umkm-warning);
+   color: var(--umkm-text-dark);
+}
+
+.status-badge-table.status-active {
+   background-color: var(--umkm-success);
+   color: white;
+}
+
+.status-badge-table.status-inactive {
+   background-color: var(--umkm-secondary-gray);
+   color: white;
+}
+
+.admin-table .btn-table-action,
+.admin-table .btn-table-form-inline button {
+   display: inline-block;
+   padding: 8px 12px;
+   margin-right: 5px;
+   border-radius: 5px;
+   text-decoration: none;
+   font-size: 0.9rem;
+   cursor: pointer;
+   transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.admin-table .btn-table-action.edit {
+   background-color: var(--umkm-info);
+   color: white;
+   border: none;
+}
+
+.admin-table .btn-table-action.edit:hover {
+   background-color: var(--umkm-info-hover);
+}
+
+.admin-table .btn-table-form-inline button.delete {
+   background-color: var(--umkm-danger);
+   color: white;
+   border: none;
+}
+
+.admin-table .btn-table-form-inline button.delete:hover {
+   background-color: var(--umkm-danger-hover);
+}
+
+.admin-table .btn-table-form-inline {
+   display: inline; /* Agar form dan tombol sejajar */
+}
+
+.back-to-admin-dashboard {
+   display: inline-block;
+   padding: 10px 15px;
+   background-color: var(--umkm-secondary-gray);
+   color: white;
+   border-radius: 5px;
+   text-decoration: none;
+   font-size: 0.95rem;
+   transition: background-color 0.3s ease;
+   margin-top: 20px;
+}
+
+.back-to-admin-dashboard:hover {
+   background-color: var(--umkm-secondary-gray-hover);
+}
+
+/* Responsive untuk tabel admin */
+@media (max-width: 767px) {
+   .admin-product-management-container {
+       padding: 15px;
+   }
+
+   .admin-table {
+       border: 0;
+   }
+
+   .admin-table thead {
+       border: none;
+       clip: rect(0 0 0 0);
+       height: 1px;
+       margin: -1px;
+       overflow: hidden;
+       padding: 0;
+       position: absolute;
+       width: 1px;
+   }
+
+   .admin-table tr {
+       border-bottom: 3px solid #ddd;
+       display: block;
+       margin-bottom: .625em;
+   }
+
+   .admin-table td {
+       border-bottom: 1px solid #ddd;
+       display: block;
+       font-size: .8em;
+       text-align: right;
+   }
+
+   .admin-table td::before {
+       /*
+       * Biasanya Anda ingin memasukkan data-label di sini!
+       * Attr (data-label): sebelum konten sel
+       */
+       content: attr(data-label);
+       float: left;
+       font-weight: bold;
+       text-transform: uppercase;
+   }
+
+   .admin-table td:last-child {
+       border-bottom: 0;
+   }
+
+   .admin-table td img {
+       max-width: 60px;
+       height: auto;
+   }
+
+   .admin-table .btn-table-action,
+   .admin-table .btn-table-form-inline button {
+       font-size: 0.8rem;
+       padding: 5px 8px;
+       margin-bottom: 5px;
+       display: inline-block; /* Make buttons stack nicely on smaller screens */
+   }
+
+   .admin-table .btn-table-form-inline {
+       display: block; /* Make form take full width */
+   }
+}
+/* public/css/style.css - Bagian Tombol Edit & Hapus Admin Table */
+
+/* Admin Action Buttons (in tables) */
+.btn-table-action {
+    padding: 0.4rem 0.7rem; /* Sesuaikan padding */
+    border-radius: 0.25rem; /* Sudut tombol */
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: background-color 0.3s ease, opacity 0.3s ease;
+    margin-right: 0.4rem; /* Jarak antar tombol */
+    border: none; /* Hilangkan border default */
+    cursor: pointer;
+    white-space: nowrap; /* Pastikan teks tidak patah baris */
+}
+
+/* Gaya untuk tombol Edit */
+.btn-table-action.edit {
+    background-color: var(--umkm-info); /* Warna biru info */
+    color: white;
+}
+.btn-table-action.edit:hover {
+    background-color: var(--umkm-info-hover);
+}
+
+/* Gaya untuk tombol Delete (jika sebagai <a> tag) */
+.btn-table-action.delete {
+    background-color: var(--umkm-danger); /* Warna merah bahaya */
+    color: white;
+}
+.btn-table-action.delete:hover {
+    background-color: var(--umkm-danger-hover);
+}
+
+/* Gaya untuk tombol Delete (jika sebagai <button> di dalam form) */
+.btn-table-form-inline {
+    display: inline-block;
+    margin-right: 0.4rem; /* Jarak antar form/tombol */
+}
+.btn-table-form-inline button.delete { /* Pastikan kelas 'delete' ada di button-nya */
+    background-color: var(--umkm-danger); /* Warna merah bahaya */
+    color: white;
+    border: none; /* Hilangkan border default */
+    cursor: pointer;
+    padding: 0.4rem 0.7rem;
+    border-radius: 0.25rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+.btn-table-form-inline button.delete:hover {
+    background-color: var(--umkm-danger-hover);
+}

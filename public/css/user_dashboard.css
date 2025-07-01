@@ -1,0 +1,436 @@
+/* public/css/user_dashboard.css - Gaya Khusus Dashboard User UMKM */
+
+/* ========================================= */
+/* 0. Layout Utama Dashboard User (Sidebar & Main Content) */
+/* ========================================= */
+
+.dashboard-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;              /* Pakai lebar penuh */
+    max-width: none;          /* Hilangkan batas lebar */
+    margin: 0;                /* Hilangkan margin */
+    border-radius: 0;         /* (Opsional) Biar benar-benar menyatu ke tepi layar */
+    box-shadow: none;         /* (Opsional) Kalau nggak mau ada bayangan */
+}
+.sidebar {
+  width: 100%;
+  background-color: var(--umkm-dark-green);
+  color: white;
+  padding: 1.5rem;
+  box-sizing: border-box;
+  height: 100vh; 
+}
+
+.sidebar-header {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+.sidebar-header h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.sidebar-menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.sidebar-menu li {
+  margin-bottom: 0.5rem;
+}
+.sidebar-menu a {
+  display: block;
+  padding: 0.75rem 1rem;
+  color: white;
+  text-decoration: none;
+  border-radius: 0.3rem;
+  transition: background-color 0.3s ease;
+  font-weight: 500;
+}
+.sidebar-menu a:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+.sidebar-menu a.active {
+  background-color: var(--umkm-light-bg);
+  color: var(--umkm-dark-green);
+  font-weight: 600;
+}
+
+.dashboard-main-content {
+  flex-grow: 1;
+  padding: 2.5rem;
+  background-color: white;
+  box-sizing: border-box;
+}
+
+
+/* ========================================= */
+/* 1. Kontainer Utama Dashboard User */
+/* ========================================= */
+
+.main-user-dashboard-container {
+  padding: 2.5rem;
+  border-radius: 0.75rem;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.main-user-dashboard-container h1 {
+  color: var(--umkm-dark-green);
+  font-size: 2.2rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.welcome-message {
+  text-align: center;
+  color: var(--umkm-text-medium);
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+}
+.welcome-message strong {
+  color: var(--umkm-dark-green);
+}
+
+
+/* ========================================= */
+/* 2. Tombol Aksi Dashboard User */
+/* ========================================= */
+
+.dashboard-actions {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+}
+
+.btn-primary-action,
+.btn-secondary-action {
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  text-decoration: none;
+  text-align: center;
+  white-space: nowrap;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+.btn-primary-action {
+  background-color: var(--umkm-dark-green);
+  color: white;
+  border: 1px solid var(--umkm-dark-green);
+}
+.btn-primary-action:hover {
+  background-color: #032b12;
+  border-color: #032b12;
+}
+
+.btn-secondary-action {
+  background-color: var(--umkm-light-bg);
+  color: var(--umkm-dark-green);
+  border: 1px solid var(--umkm-dark-green);
+}
+.btn-secondary-action:hover {
+  background-color: #e0c896;
+  border-color: #032b12;
+}
+
+
+/* ========================================= */
+/* 3. Bagian Tabel & Produk User */
+/* ========================================= */
+
+.user-products-section h2 {
+  color: var(--umkm-dark-green);
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid var(--umkm-light-bg);
+  padding-bottom: 0.5rem;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 2rem;
+  background-color: #f9f9f9;
+  border: 1px dashed var(--umkm-text-light);
+  border-radius: 0.5rem;
+  color: var(--umkm-text-medium);
+}
+.empty-state a {
+  color: var(--umkm-dark-green);
+  font-weight: 600;
+  text-decoration: none;
+}
+.empty-state a:hover {
+  text-decoration: underline;
+}
+
+.table-responsive {
+  overflow-x: auto;
+}
+
+.user-product-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 2rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+  border-radius: 0.5rem;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.user-product-table thead tr {
+  background-color: var(--umkm-dark-green);
+  color: white;
+}
+.user-product-table th,
+.user-product-table td {
+  padding: 12px 15px;
+  border: 1px solid #ddd;
+  text-align: left;
+  vertical-align: middle;
+}
+.user-product-table tbody tr:nth-child(even) {
+  background-color: #f6f6f6;
+}
+.user-product-table tbody tr:hover {
+  background-color: #eaeaea;
+}
+.user-product-table .product-thumbnail {
+  max-width: 70px;
+  height: auto;
+  border-radius: 4px;
+}
+
+.rejection-note-text {
+  color: var(--umkm-danger);
+  font-size: 0.9em;
+  font-style: italic;
+  margin-top: 5px;
+  line-height: 1.4;
+  max-width: 250px;
+  white-space: normal;
+  background-color: #ffebeb;
+  border-left: 3px solid var(--umkm-danger);
+  padding: 5px 10px;
+  border-radius: 3px;
+}
+
+.action-buttons-table {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: nowrap;
+}
+
+.btn-action-table {
+  padding: 0.5rem 0.8rem;
+  border-radius: 0.3rem;
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+  white-space: nowrap;
+  border: none;
+  cursor: pointer;
+}
+.btn-action-table.btn-edit-table {
+  background-color: var(--umkm-info);
+  color: white;
+}
+.btn-action-table.btn-edit-table:hover {
+  background-color: var(--umkm-info-hover);
+}
+.btn-action-table.btn-delete-table {
+  background-color: var(--umkm-danger);
+  color: white;
+}
+.btn-action-table.btn-delete-table:hover {
+  background-color: var(--umkm-danger-hover);
+}
+
+
+/* ========================================= */
+/* 4. Status Badge Produk */
+/* ========================================= */
+
+.status-badge {
+  display: inline-block;
+  padding: 0.3em 0.8em;
+  border-radius: 0.25rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  color: white;
+}
+.status-pending { background-color: var(--umkm-warning); color: #343a40; }
+.status-approved { background-color: var(--umkm-success); }
+.status-rejected { background-color: var(--umkm-danger); }
+
+
+/* ========================================= */
+/* 5. Card Produk (opsional) */
+/* ========================================= */
+
+.user-product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.user-product-card {
+  background-color: white;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+.user-product-card:hover {
+  transform: translateY(-5px);
+}
+.user-product-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-bottom: 1px solid #eee;
+}
+.user-product-card .card-info {
+  padding: 1rem;
+}
+.user-product-card h3 {
+  color: var(--umkm-dark-green);
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+.user-product-card .description {
+  color: var(--umkm-text-medium);
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+.user-product-card .price {
+  color: var(--umkm-dark-green);
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin-bottom: 0.75rem;
+}
+.user-product-card .card-actions {
+  display: flex;
+  justify-content: space-around;
+  gap: 0.5rem;
+}
+.user-product-card .btn-edit,
+.user-product-card .btn-delete {
+  flex-grow: 1;
+  padding: 0.6rem 1rem;
+  border-radius: 0.3rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.user-product-card .btn-edit {
+  background-color: #032b12;
+  color: white;
+  border: 1px solid #032b12;
+}
+.user-product-card .btn-edit:hover {
+  background-color: #082111;
+}
+.user-product-card .btn-delete {
+  background-color: #dc3545;
+  color: white;
+  border: 1px solid #dc3545;
+}
+.user-product-card .btn-delete:hover {
+  background-color: #c82333;
+}
+
+
+/* ========================================= */
+/* 6. Responsive Design */
+/* ========================================= */
+
+@media (max-width: 600px) {
+  .main-user-dashboard-container {
+    padding: 1.5rem;
+    margin: 20px auto;
+  }
+  .main-user-dashboard-container h1 {
+    font-size: 1.8rem;
+  }
+  .dashboard-actions {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .btn-primary-action,
+  .btn-secondary-action {
+    width: 100%;
+  }
+
+  .user-product-table {
+    border: 0;
+  }
+  .user-product-table thead {
+    border: none;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+  }
+  .user-product-table tr {
+    display: block;
+    border-bottom: 3px solid #ddd;
+    margin-bottom: .625em;
+  }
+  .user-product-table td {
+    display: block;
+    text-align: right;
+    font-size: .8em;
+    border-bottom: 1px solid #ddd;
+  }
+  .user-product-table td::before {
+    content: attr(data-label);
+    float: left;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  .user-product-table td:last-child {
+    border-bottom: 0;
+  }
+
+  .rejection-note-text {
+    max-width: 100%;
+  }
+  .action-buttons-table {
+    flex-direction: column;
+  }
+  .btn-action-table {
+    width: 100%;
+    margin-bottom: 0.5rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .dashboard-wrapper {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+  .sidebar {
+    width: 250px;
+    flex-shrink: 0;
+    min-height: 100%;
+    padding-top: 2.5rem;
+  }
+  .dashboard-main-content {
+    flex-grow: 1;
+  }
+}
